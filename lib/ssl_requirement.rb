@@ -80,8 +80,11 @@ module SslRequirement
   end
 
   def ssl_allowed?
-    (self.class.read_inheritable_attribute(:ssl_allowed_actions) || []).include?(action_name.to_sym)
+    allowed_actions = (self.class.read_inheritable_attribute(:ssl_allowed_actions) || [])
+
+    allowed_actions == [:all] || allowed_actions.include?(action_name.to_sym)
   end
+  
 
   # normal ports are the ports used when no port is specified by the user to the browser
   # i.e. 80 if the protocol is http, 443 is the protocol is https
