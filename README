@@ -1,3 +1,8 @@
+Reason for the CrystalCommerce branch:
+
+We're still using Rails 2.3, but the ssh_host & url_for upgrades were nice.
+This branch started with `git reset --hard 593a09647983bf13ebe2`.
+
 SSL Requirement
 ===============
 
